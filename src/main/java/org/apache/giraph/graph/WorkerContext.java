@@ -30,9 +30,19 @@ public abstract class WorkerContext implements AggregatorUsage {
     /** Global graph state */
 	private GraphState graphState;
 
+  private WorkerInfo workerInfo;
+
 	public void setGraphState(GraphState graphState) {
 		this.graphState = graphState;
 	}
+
+  public void setWorkerInfo(WorkerInfo workerInfo) {
+    this.workerInfo = workerInfo;
+  }
+
+  public WorkerInfo getWorkerInfo() {
+    return workerInfo;
+  }
 
     /**
      * Initialize the WorkerContext.

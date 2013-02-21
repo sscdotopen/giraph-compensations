@@ -73,7 +73,14 @@ public class InternalVertexRunner {
         return run(vertexClass, null, vertexInputFormatClass,
                 vertexOutputFormatClass, params, data);
     }
-    
+
+  public static Iterable<String> run(Class<?> vertexClass,
+                                     Class<?> vertexCombinerClass, Class<?> vertexInputFormatClass,
+                                     Class<?> vertexOutputFormatClass, Map<String, String> params,
+                                     String... data) throws Exception {
+    return run(vertexClass, vertexCombinerClass, null, vertexInputFormatClass, vertexOutputFormatClass, params, data);
+  }
+
     /**
      *  Attempts to run the vertex internally in the current JVM, reading from and writing to a
      *  temporary folder on local disk. Will start an own zookeeper instance.
@@ -88,7 +95,7 @@ public class InternalVertexRunner {
      * @throws Exception
      */
     public static Iterable<String> run(Class<?> vertexClass,
-            Class<?> vertexCombinerClass, Class<?> vertexInputFormatClass, 
+            Class<?> vertexCombinerClass, Class<?> workerContextClass, Class<?> vertexInputFormatClass,
             Class<?> vertexOutputFormatClass, Map<String, String> params,
             String... data) throws Exception {
 
@@ -111,6 +118,10 @@ public class InternalVertexRunner {
             
             if (vertexCombinerClass != null) {
                 job.setVertexCombinerClass(vertexCombinerClass);
+            }
+
+            if (workerContextClass != null) {
+              job.setWorkerContextClass(workerContextClass);
             }
 
             job.setWorkerConfiguration(1, 1, 100.0f);

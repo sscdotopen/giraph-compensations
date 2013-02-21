@@ -553,6 +553,7 @@ public class GraphMapper<I extends WritableComparable, V extends Writable,
             }
 
             serviceWorker.getWorkerContext().setGraphState(graphState);
+            serviceWorker.getWorkerContext().setWorkerInfo(serviceWorker.getWorkerInfo());
             serviceWorker.getWorkerContext().preSuperstep();
             context.progress();
 
