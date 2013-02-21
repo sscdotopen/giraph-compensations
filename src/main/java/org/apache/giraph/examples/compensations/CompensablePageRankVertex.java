@@ -35,6 +35,11 @@ public class CompensablePageRankVertex extends LongDoubleFloatDoubleVertex {
     } else {
 
       if (isIterationSubsequentToFailingIteration()) {
+
+        if (inFailedPartition()) {
+          setVertexValue(new DoubleWritable(0));
+        }
+
         compensate();
       }
 

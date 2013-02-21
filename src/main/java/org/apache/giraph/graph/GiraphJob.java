@@ -260,8 +260,8 @@ public class GiraphJob extends Job {
     public static final String CHECKPOINT_FREQUENCY =
         "giraph.checkpointFrequency";
 
-    /** Default checkpointing frequency of every 2 supersteps. */
-    public static final int CHECKPOINT_FREQUENCY_DEFAULT = 2;
+    /** Checkpointing disabled by default. */
+    public static final int CHECKPOINT_FREQUENCY_DEFAULT = 0;
 
     /**
      * Delete checkpoints after a successful job run?
