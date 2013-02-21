@@ -28,11 +28,6 @@ public class CompensablePageRankVertex extends LongDoubleFloatDoubleVertex {
   @Override
   public void compute(Iterator<DoubleWritable> messages) throws IOException {
 
-//    if (getSuperstep() > 25) {
-//      voteToHalt();
-//      return;
-//    }
-
     double newRank;
 
     if (getSuperstep() == 0) {

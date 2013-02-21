@@ -363,32 +363,6 @@ under the License.
        </reportPlugins>
       </configuration>
     </plugin>
-    <plugin>
-      <groupId>org.apache.rat</groupId>
-      <artifactId>apache-rat-plugin</artifactId>
-      <version>0.7</version>
-      <executions>
-        <execution>
-          <phase>verify</phase>
-          <goals>
-            <goal>check</goal>
-          </goals>
-        </execution>
-      </executions>
-      <configuration>
-         <excludeSubProjects>false</excludeSubProjects>
-         <numUnapprovedLicenses>0</numUnapprovedLicenses>
-         <excludes>
-            <exclude>CODE_CONVENTIONS</exclude>
-            <!-- generated content -->
-            <exclude>**/target/**</exclude>
-            <exclude>_bsp/**</exclude>
-            <!-- source control and IDEs -->
-            <exclude>.git/**</exclude>
-            <exclude>.idea/**</exclude>
-         </excludes>
-      </configuration>
-    </plugin>
     </plugins>
   </build>
 
