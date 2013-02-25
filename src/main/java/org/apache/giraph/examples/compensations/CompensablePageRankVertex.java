@@ -57,9 +57,6 @@ public class CompensablePageRankVertex extends LongDoubleFloatDoubleVertex {
       newRank = 0.85 * (summedRank + danglingRankContribution) + 0.15 / getNumVertices();
     }
 
-    //System.out.println("SS [" + getSuperstep() + "], vertex [" + getVertexId().get() +"], rank [" + newRank + "]");
-    //System.out.println("[WORKER_INFO]" + getWorkerContext().getWorkerInfo());
-
     SumAggregator danglingRank = (SumAggregator) getAggregator(CompensablePageRankVertex.DANGLING_RANK);
     SumAggregator l1Diff = (SumAggregator) getAggregator(CompensablePageRankVertex.L1_DIFF);
     LongSumAggregator nonFailedVertices =
